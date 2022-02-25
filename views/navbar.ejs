@@ -1,0 +1,16 @@
+<nav class="navbar fixed-top navbar-expand navbar-dark bg-dark">
+    <a class="navbar-brand" href="/">Home</a>
+        <div class="navbar-nav d-flex flex-row-reverse w-100">
+            <% if(user == null || user.name == null) { %>
+                <a class="nav-link" href="/login" style="margin-right: 2%;">Login/Register</a>
+            <% } else { %>
+                <form action="/logout?_method=DELETE" method="POST" style="margin-right: 2%;">
+                    <button type="submit" class="btn btn-dark">Logout</button>
+                </form>
+                <a class="nav-item nav-link" href="/users/<%= user.id %>">Profile</a>
+                <span class="navbar-text" style="margin-right: 8%;">
+                    Welcome, <%= user.name %>!
+                </span>
+            <% } %>
+    </div>    
+</nav>
